@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LeetCode Questions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #222;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Header */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        /* Filter Form */
+        .filter-form {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .filter-form label {
+            font-weight: bold;
+        }
+        .filter-form input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .filter-form button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filter-form button:hover {
+            background: #1e7e34;
+        }
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #28a745;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        tr:hover {
+            background: #e9ecef;
+        }
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>LeetCode Questions</h1>
+</header>
+
+<div class="container">
+
+    <!-- Filter Form -->
+    <section class="filter-form">
+        <h2>Filter Questions</h2>
+        <form th:action="@{/leetcode/questions/filter}" method="get">
+            <label for="difficulty">Difficulty:</label>
+            <input type="text" id="difficulty" name="difficulty" placeholder="Easy, Medium, Hard" />
+
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="company" placeholder="Google, Facebook, Amazon" />
+
+            <button type="submit">Apply Filter</button>
+        </form>
+    </section>
+
+    <!-- Questions Table -->
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Difficulty</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="question : ${questions}">
+            <td th:text="${question.id}"></td>
+            <td th:text="${question.title}"></td>
+            <td th:text="${question.difficulty}"></td>
+            <td><a th:href="@{/leetcode/questions/{id}(id=${question.id})}">View Details</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>Made by <strong>Yahya</strong> | <a href="https://github.com/yahyasadiki" target="_blank">GitHub Profile</a></p>
+    <p>&copy; 2025 LeetCode Web App. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
