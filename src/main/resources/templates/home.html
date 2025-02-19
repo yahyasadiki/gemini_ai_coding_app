@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LeetCode Web App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #222;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        /* Header */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            width: 100px;
+            vertical-align: middle;
+        }
+        header h1 {
+            display: inline;
+            margin-left: 10px;
+        }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            color: #28a745;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .feature {
+            background: #ffffff;
+            padding: 20px;
+            flex: 1;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #28a745;
+        }
+        /* Testimonials */
+        .testimonials {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .testimonial {
+            background: #ffffff;
+            padding: 15px;
+            margin: 10px;
+            display: inline-block;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #28a745;
+        }
+        /* Call to Action */
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #28a745;
+            color: white;
+            border-radius: 8px;
+        }
+        .cta a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: white;
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .cta a:hover {
+            background: #1e7e34;
+            color: white;
+        }
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <img src="/images/leetcode-logo.png" alt="LeetCode Logo" />
+    <h1>LeetCode Web App</h1>
+</header>
+
+<div class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Welcome to LeetCode Practice</h2>
+        <p th:text="${message}"></p>
+        <p>Enhance your coding skills with real interview problems!</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h3>💡 1000+ Questions</h3>
+            <p>Access a vast collection of coding problems.</p>
+        </div>
+        <div class="feature">
+            <h3>📝 Code Evaluation</h3>
+            <p>Get instant feedback on your solutions.</p>
+        </div>
+        <div class="feature">
+            <h3>📊 Performance Tracking</h3>
+            <p>Analyze your progress and improve efficiency.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <p>"This app helped me ace my coding interview!" - Alex</p>
+        </div>
+        <div class="testimonial">
+            <p>"I love the variety of problems available!" - Maria</p>
+        </div>
+        <div class="testimonial">
+            <p>"The feedback system is incredibly helpful." - John</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Start Solving Problems Today!</h2>
+        <a th:href="@{/leetcode/questions}">View All Questions</a>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>Made by <strong>Yahya</strong> | <a href="https://github.com/yahyasadiki" target="_blank">GitHub Profile</a></p>
+    <p>&copy; 2025 LeetCode Web App. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

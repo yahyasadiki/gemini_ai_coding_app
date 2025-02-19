@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Code Evaluation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #222;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Header */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        /* Question Section */
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        /* Code Editor - VS Code Style */
+        .code-editor {
+            background: #1e1e1e;
+            color: #dcdcdc;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid #333;
+            overflow-x: auto;
+            min-height: 250px;
+            white-space: pre-wrap;
+        }
+        textarea {
+            display: none; /* Hide default textarea */
+        }
+        /* Submit Button */
+        .btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #1e7e34;
+        }
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Code Evaluation</h1>
+</header>
+
+<div class="container">
+
+    <!-- Question Info -->
+    <section class="question">
+        <h2 th:text="${question.title}"></h2>
+        <p th:text="${question.description}"></p>
+    </section>
+
+    <!-- Code Evaluation Form -->
+    <form th:action="@{/leetcode/questions/{id}/evaluate(id=${question.id})}" method="post">
+        <label for="code"><strong>Your Code:</strong></label><br/>
+        <div class="code-editor" contenteditable="true" id="codeEditor" oninput="document.getElementById('code').value = this.innerText" th:text="${code}"></div>
+        <textarea id="code" name="code" th:text="${code}"></textarea><br/><br/>
+        <button type="submit" class="btn">Evaluate Code</button>
+    </form>
+
+    <!-- Back to Question -->
+    <a th:href="@{/leetcode/questions/{id}(id=${question.id})}" class="back-link">⬅ Back to Question</a>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>Made by <strong>Yahya</strong> | <a href="https://github.com/yahyasadiki" target="_blank">GitHub Profile</a></p>
+    <p>&copy; 2025 LeetCode Web App. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
